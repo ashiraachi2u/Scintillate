@@ -2,9 +2,9 @@ const mysql = require('mysql2');
 
 // Create the connection to the database
 const connection = mysql.createConnection({
-    host: 'localhost', 
-    user: 'root',
-    password: '@Shir27447',
+    host: '13.201.46.63', 
+    user: 'ashir',
+    password: 'Ashir@123',
     database: 'Scintillate_db'
 });
 
