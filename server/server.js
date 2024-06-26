@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -6,13 +7,10 @@ const session = require('express-session');
 const connection = require('./config/db');
 const { app, server, io } = require('./config/socket');
 const { log } = require('console');
-
 const PORT = 3000;
-
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'views'));
-
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
