@@ -143,7 +143,7 @@ logout_btn.addEventListener('click',async()=>{
     if (userResponse) {
         try {
             const response = await fetch('/logout', {
-              method: 'GET',
+              method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
               }
@@ -153,7 +153,7 @@ logout_btn.addEventListener('click',async()=>{
             console.log(result);
         
             if (response.ok) {
-              console.log("success");
+              window.location.href = '/signin';
             }
           } catch (error) {
             console.error('Error:', error);
