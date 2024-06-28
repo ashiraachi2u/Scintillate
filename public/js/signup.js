@@ -10,7 +10,15 @@ const serv_err        = document.querySelector(".servr-err");
 const email_err       = document.querySelector(".email-err");
 const next_btn        = document.getElementById("sign-up");
 const signinBtn       = document.getElementById("signin-button");
+const show_btn        = document.querySelector(".show-password-btn");
+const hide_btn        = document.querySelector(".hide-password-btn");
 
+function inputText(element,error){
+  element.addEventListener("input", () => {
+    removeErr(error, element);
+    next_btn.disabled = false;
+  })
+}
 next_btn.addEventListener("click", async(e) => {
   e.preventDefault();
   next_btn.disabled = true;
@@ -68,4 +76,20 @@ next_btn.addEventListener("click", async(e) => {
   } finally {
     next_btn.disabled = false;
   }
+});
+
+inputText(email_el,email_err);
+inputText(password_el,password_err);
+name_el.addEventListener("input", () => {
+  next_btn.disabled = false;
+})
+show_btn.addEventListener("click", (e) => {
+  show_btn.style.display = "none";
+  hide_btn.style.display = "block";
+  password_el.type = "text";
+});
+hide_btn.addEventListener("click", () => {
+  hide_btn.style.display = "none";
+  show_btn.style.display = "block";
+  password_el.type = "password";
 });
